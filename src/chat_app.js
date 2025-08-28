@@ -10,6 +10,12 @@ function sendMessage(user, message, emitter) {
   emitter.emit("message", user, message);
 }
 
-sendMessage("Алиса", "Всем привет!", chatEmitter);
-sendMessage("Боб", "Привет, Алиса!", chatEmitter);
-sendMessage("Чат-бот", "Добро пожаловать в чат", chatEmitter);
+// Export for use in other modules
+module.exports = { chatEmitter, sendMessage };
+
+// Demo messages (optional for testing)
+if (require.main === module) {
+  sendMessage("Алиса", "Всем привет!", chatEmitter);
+  sendMessage("Боб", "Привет, Алиса!", chatEmitter);
+  sendMessage("Чат-бот", "Добро пожаловать в чат", chatEmitter);
+}
